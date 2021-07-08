@@ -1,0 +1,30 @@
+name: Tensorboard Demo
+description: How to use Tensorboard on CML
+author: Cloudera Engineer
+date: "2020-07-08"
+specification_version: 1.0
+
+runtimes:
+  - editor: Workbench
+    kernel: Python 3.6
+    edition: Standard
+
+tasks:
+  - type: run_session
+    name: Install Dependencies
+    script: cml/install_dependencies.py
+    memory: 4
+    cpu: 2
+
+  - type: start_application
+    name: Launch Tensorboard
+    subdomain: tensorboard
+    script: cml/launch_tensorboard.py
+    memory: 1
+    cpu: 1
+
+  - type: run_session
+    name: Train model
+    script: load_and_train.py
+    memory: 4
+    cpu: 2
